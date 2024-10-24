@@ -1,0 +1,184 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json
+final_space: false
+version: 2
+palette:
+  catp-mocha-rosewater: "#f5e0dc"
+  catp-mocha-flamingo: "#f2cdcd"
+  catp-mocha-pink: "#f5c2e7"
+  catp-mocha-mauve: "#cba6f7"
+  catp-mocha-red: "#f38ba8"
+  catp-mocha-maroon: "#eba0ac"
+  catp-mocha-peach: "#fab387"
+  catp-mocha-yellow: "#f9e2af"
+  catp-mocha-green: "#a6e3a1"
+  catp-mocha-teal: "#94e2d5"
+  catp-mocha-sky: "#89dceb"
+  catp-mocha-sapphire: "#74c7ec"
+  catp-mocha-blue: "#89b4fa"
+  catp-mocha-lavender: "#b4befe"
+  catp-mocha-text: "#cdd6f4"
+  catp-mocha-subtext1: "#bac2de"
+  catp-mocha-subtext0: "#a6adc8"
+  catp-mocha-overlay2: "#9399b2"
+  catp-mocha-overlay1: "#7f849c"
+  catp-mocha-overlay0: "#6c7086"
+  catp-mocha-surface2: "#585b70"
+  catp-mocha-surface1: "#45475a"
+  catp-mocha-surface0: "#313244"
+  catp-mocha-base: "#1e1e2e"
+  catp-mocha-mantle: "#181825"
+  catp-mocha-crust: "#11111b"
+  #
+  catp-latte-rosewater: "#dc8a78"
+  catp-latte-flamingo: "#dd7878"
+  catp-latte-pink: "#ea76cb"
+  catp-latte-mauve: "#8839ef"
+  catp-latte-red: "#d20f39"
+  catp-latte-maroon: "#e64553"
+  catp-latte-peach: "#fe640b"
+  catp-latte-yellow: "#df8e1d"
+  catp-latte-green: "#40a02b"
+  catp-latte-teal: "#179299"
+  catp-latte-sky: "#04a5e5"
+  catp-latte-sapphire: "#209fb5"
+  catp-latte-blue: "#1e66f5"
+  catp-latte-lavender: "#7287fd"
+  catp-latte-text: "#4c4f69"
+  catp-latte-subtext1: "#5c5f77"
+  catp-latte-subtext0: "#6c6f85"
+  catp-latte-overlay2: "#7c7f93"
+  catp-latte-overlay1: "#8c8fa1"
+  catp-latte-overlay0: "#9ca0b0"
+  catp-latte-surface2: "#acb0be"
+  catp-latte-surface1: "#bcc0cc"
+  catp-latte-surface0: "#ccd0da"
+  catp-latte-base: "#eff1f5"
+  catp-latte-mantle: "#e6e9ef"
+  catp-latte-crust: "#dce0e8"
+blocks:
+- alignment: left
+  leading_diamond: "\uE0B6"
+  segments:
+  - type: session
+    background: p:catp-mocha-surface0
+    foreground: p:catp-mocha-text
+    style: diamond
+    leading_diamond: "\uE0B6"
+    template: "{{ if .SSHSession }}\uEBA9 {{ end }}{{ if .Root }}\u265C {{ end }}{{ if .WSL }}\u26F6 {{ end }}"
+    hide: false
+  - type: os
+    style: diamond
+    background: p:catp-mocha-surface0
+    foreground: p:catp-mocha-text
+    template: "{{ .Icon }} {{ .UserName }} "
+    # template: "{{ .Icon }}{{ if .WSL }} \u26F6{{ end }} {{ lower .UserName }} "
+    properties:
+      macos: mac
+  - type: path
+    background: p:catp-mocha-peach
+    foreground: p:catp-mocha-mantle
+    style: powerline
+    powerline_symbol: "\uE0B0"
+    properties:
+      style: full
+      # folder_icon: "\u2026"
+    template: " {{ .Path }} "
+    # template: " \uF07B </>{{ .Path }} "
+
+  - type: git
+    background: p:catp-mocha-yellow
+    # background_templates:
+      # - '{{ if or (.Working.Changed) (.Staging.Changed) }}p:catp-mocha-green{{ end }}'
+      # - '{{ if and (gt .Ahead 0) (gt .Behind 0) }}p:catp-mocha-yellow{{ end }}'
+    # - '{{ if gt .Ahead 0 }}p:catp-mocha-teal{{ end }}'
+    # - '{{ if gt .Behind 0 }}p:catp-mocha-teal{{ end }}'
+    foreground: p:catp-mocha-base
+    style: accordion
+    powerline_symbol: "\uE0B0"
+    properties:
+      fetch_stash_count: true
+      fetch_status: true
+      fetch_upstream_icon: true
+    template: " {{ .UpstreamIcon }}{{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }} \uF044 {{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }} \uF046 {{ .Staging.String }}{{ end }}{{ if gt .StashCount 0 }} \uEB4B {{ .StashCount }}{{ end }} "
+
+  - type: docker
+    background: p:catp-mocha-green
+    foreground: p:catp-mocha-base
+    style: accordion
+    powerline_symbol: "\uE0B0"
+    template: " \uF308 {{ .Context }} "
+
+  - type: java
+    background: p:catp-mocha-sapphire
+    foreground: p:catp-mocha-base
+    style: powerline
+    powerline_symbol: "\uE0B0"
+    template: "\uE256 {{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }}"
+
+  - background: p:catp-mocha-text
+    foreground: p:catp-mocha-base
+    powerline_symbol: "\uE0B0"
+    properties:
+      always_enabled: true
+    style: powerline
+    template: " \uEBA2 {{ .FormattedMs }} "
+    type: executiontime
+  - type: status
+    background: p:catp-mocha-rosewater
+    background_templates:
+    - '{{ if gt .Code 0 }}p:catp-mocha-maroon{{ end }}'
+    foreground: p:catp-mocha-base
+    style: diamond
+    trailing_diamond: "\uE0B4"
+    properties:
+      always_enabled: true
+    template: " {{ if gt .Code 0 }}\uF00D {{ reason .Code }} {{ else }}\uF42E {{ end }}"
+  type: prompt
+
+- alignment: right
+  segments:
+  - type: shell
+    background: p:catp-mocha-maroon
+    foreground: p:catp-mocha-base
+    invert_powerline: true
+    powerline_symbol: "\uE0B2"
+    style: powerline
+    template: " \uF489 {{ .HostName }}|{{ .Name }} </>"
+  # - type: battery
+  #   background: p:catp-mocha-green
+  #   # background_templates:
+  #   # - '{{if eq "Charging" .State.String}}#A3BE8C{{end}}'
+  #   # - '{{if eq "Discharging" .State.String}}p:catp-mocha-yellow{{end}}'
+  #   # - '{{if eq "Full" .State.String}}p:catp-mocha-green{{end}}'
+  #   foreground: p:catp-mocha-base
+  #   style: powerline
+  #   invert_powerline: true
+  #   powerline_symbol: "\uE0B2"
+  #   min_width: 125
+  #   properties:
+  #     discharging_icon: "\uE234 "
+  #     charging_icon: "\uEB2D "
+  #     charged_icon: "\uE22F "
+  #   template: " {{ if not .Error }}{{ .Percentage }}{{ end }}{{ .Error }}\uF295 {{ .Icon }}"
+  - type: time
+    background: p:catp-mocha-blue
+    foreground: p:catp-mocha-base
+    invert_powerline: true
+    style: diamond
+    trailing_diamond: "\uE0B4"
+    template: " \uE641 {{ .CurrentDate | date .Format }} "
+  type: prompt
+  overflow: hide
+
+- alignment: left
+  newline: true
+  segments:
+  - foreground: p:catp-mocha-text
+    # foreground_templates:
+    # - '{{ if gt .Code 0 }}p:catp-mocha-maroon{{ end }}'
+    style: plain
+    template: "\uF432 "
+    # template: "\u276F\u276F "
+    # template: "<#B48EAD>\u276F</><#A3BE8C>\u276F</><#EBCB8B>\u276F</> "
+    type: text
+  type: prompt
