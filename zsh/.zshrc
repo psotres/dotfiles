@@ -23,8 +23,15 @@ setopt hist_reduce_blanks # remove superfluous blanks from history items
 # Use modern completion system
 autoload -Uz compinit && compinit
 
+# Enable hidden files completion
+_comp_options+=(globdots)
+
 # Enable menu selection and prevent auto cycling
 zstyle ':completion:*' menu select
+
+#zstyle ':completion:*' special-dirs '[[ $PREFIX = (../)#(|.|..) ]] && reply=(..)'
+#zstyle ':completion:*' special-dirs '..'
+zstyle -e ':completion:*' special-dirs '[[ $PREFIX = (../)#(|.|..) ]] && reply=(..)'
 
 # Customize menu appearance:
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
@@ -54,7 +61,7 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 source <(fzf --zsh)
 # fzf parameters used in all widgets - configure layout and wrapped the preview results (useful in large command rendering)
 # export FZF_DEFAULT_OPTS="--height 100% --layout reverse --preview-window=wrap"
-# export FZF_DEFAULT_OPTS="--layout reverse"
+export FZF_DEFAULT_OPTS="--layout reverse"
 
 # CTRL + R: put the selected history command in the preview window - "{}" will be replaced by item selected in fzf execution runtime
 # export FZF_CTRL_R_OPTS="--preview 'echo {}'"
