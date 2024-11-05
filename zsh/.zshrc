@@ -1,9 +1,14 @@
 # load functions
 typeset -U fpath
 my_functions=$HOME/.config/zsh/functions
-if [[ -z ${fpath[(r)$my_functions]} ]] ; then
-    fpath=($my_functions $fpath)
-    autoload -Uz ${my_functions}/*(:t)
+if [[ -d $my_functions && $(find $my_functions -type f ! -name '.*' -print -quit) ]]; then
+    # only load functions if there is something to load in the my_functions folder
+    if [[ -d $my_functions && -n $(ls -A $my_functions) ]]; then
+        if [[ -z ${fpath[(r)$my_functions]} ]] ; then
+            fpath=($my_functions $fpath)
+            autoload -Uz ${my_functions}/*(:t)
+        fi
+    fi
 fi
 
 # Keep 10000 lines of history within the shell and save it to ~/.zsh_history:

@@ -13,3 +13,11 @@ sudo ln -s ~/.fzf/bin/fzf*(x) /usr/local/bin/
 
 sudo wget https://github.com/mikefarah/yq/releases/latest/download/yq_linux_amd64 -O /usr/local/bin/yq && sudo chmod +x /usr/local/bin/yq
 ```
+
+**Note:** To enable color shell mosh 1.4.0 is needed. To install it on Ubuntu 22.04 you need to add this ppa: `sudo add-apt-repository ppa:keithw/mosh-dev`
+
+```bash
+git clone https://github.com/psotres/dotfiles.git
+cd dotfiles && ./zsh/.config/zsh/plugins/recreate_plugins.sh && ./tmux/.config/tmux/plugins/recreate_plugins.sh
+stow oh-my-posh && stow tmux && stow zsh
+```
