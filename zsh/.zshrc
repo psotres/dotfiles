@@ -66,7 +66,7 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 source <(fzf --zsh)
 # fzf parameters used in all widgets - configure layout and wrapped the preview results (useful in large command rendering)
 # export FZF_DEFAULT_OPTS="--height 100% --layout reverse --preview-window=wrap"
-export FZF_DEFAULT_OPTS="--layout reverse"
+export FZF_DEFAULT_OPTS="--height 40% --tmux bottom,40% --layout reverse --border top"
 
 # CTRL + R: put the selected history command in the preview window - "{}" will be replaced by item selected in fzf execution runtime
 # export FZF_CTRL_R_OPTS="--preview 'echo {}'"
@@ -135,5 +135,10 @@ source "$ZSH_PLUGINS/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh"
 
 ### PROMPT
 
-eval "$(oh-my-posh init zsh --config $HOME/.config/oh-my-posh/pso3g.omp.yaml)"
-
+if [ -z "${TMUX}" ]; then
+    # not tmux
+    eval "$(oh-my-posh init zsh --config $HOME/.config/oh-my-posh/pso3g.omp.yaml)"
+else
+    # tmux
+    eval "$(oh-my-posh init zsh --config $HOME/.config/oh-my-posh/pso3g-tmux.omp.yaml)"
+fi
