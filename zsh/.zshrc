@@ -75,10 +75,10 @@ export FZF_DEFAULT_OPTS="--height 40% --tmux bottom,40% --layout reverse --borde
 export FZF_CTRL_T_COMMAND="fd -H --ignore-file $HOME/.config/zsh/.fd-fzf-ignore"
 
 # CTRL + T: put the file content if item select is a file, or put tree command output if item selected is directory
-export FZF_CTRL_T_OPTS="--preview '[ -d {} ] && tree -C {} || bat --color=always --style=numbers --line-range=:500 {}'"
+export FZF_CTRL_T_OPTS="--preview '[ -d {} ] && tree -C -ad -L 3 {} || bat --color=always --style=numbers --line-range=:500 {}'"
 
 # ALT + C: put the tree command output based on item selected
-export FZF_ALT_C_OPTS="--preview 'tree -C {}'"
+export FZF_ALT_C_OPTS="--preview 'tree -C -ad -L 3 {}'"
 
 
 ### KEY BINDINGs
