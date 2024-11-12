@@ -96,7 +96,7 @@ blocks:
     background: p:catp-mocha-green
     type: docker
   - style: powerline
-    template:  {{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }}
+    template: "  {{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }} "
     foreground: p:catp-mocha-base
     powerline_symbol: 
     background: p:catp-mocha-sapphire
