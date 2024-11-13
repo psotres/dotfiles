@@ -140,5 +140,16 @@ if [ -z "${TMUX}" ]; then
     eval "$(oh-my-posh init zsh --config $HOME/.config/oh-my-posh/pso3g.omp.yaml)"
 else
     # tmux
+
+    # Don't exit shell with ctrl-d
+    setopt ignore_eof
+    # this fix strange bahaviour with zsh-autoseggestions and zsh-syntaz-highlighting plugins
+    # see:
+    #   https://github.com/zsh-users/zsh-syntax-highlighting/issues/377
+    #   https://github.com/zsh-users/zsh-autosuggestions/issues/139
+    ctrl-d() { zle -M "zsh: use 'exit' to exit."; return 1 }
+    zle -N ctrl-d
+    bindkey '^D' ctrl-d
+
     eval "$(oh-my-posh init zsh --config $HOME/.config/oh-my-posh/pso3g-tmux.omp.yaml)"
 fi
