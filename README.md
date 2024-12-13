@@ -14,7 +14,7 @@ sudo ln -s ~/.fzf/bin/fzf*(x) /usr/local/bin/
 sudo wget https://github.com/mikefarah/yq/releases/latest/download/yq_linux_amd64 -O /usr/local/bin/yq && sudo chmod +x /usr/local/bin/yq
 ```
 
-**IMPORTANT FOR UBUNTU 22.04:**To enable color shell mosh 1.4.0 is needed. To install it on Ubuntu 22.04 you need to add this ppa: `sudo add-apt-repository ppa:keithw/mosh-dev`. Besides, Ubuntu 22.04 installs repos only include tmux 3.2, which do not support popups. You can install a newer version (from debian backport) using `wget -q http://ftp.es.debian.org/debian/pool/main/t/tmux/tmux_3.5a-2~bpo12+1_amd64.deb -O /tmp/tmux_3.5a-2~bpo12+1_amd64.deb && sudo apt install -y /tmp/tmux_3.5a-2~bpo12+1_amd64.deb`.
+**IMPORTANT FOR UBUNTU 22.04:** To enable color shell mosh 1.4.0 is needed. To install it on Ubuntu 22.04 you need to add this ppa: `sudo add-apt-repository ppa:keithw/mosh-dev`. Besides, Ubuntu 22.04 installs repos only include tmux 3.2, which do not support popups. You can install a newer version (from debian backport) using `wget -q http://ftp.es.debian.org/debian/pool/main/t/tmux/tmux_3.5a-2~bpo12+1_amd64.deb -O /tmp/tmux_3.5a-2~bpo12+1_amd64.deb && sudo apt install -y /tmp/tmux_3.5a-2~bpo12+1_amd64.deb`.
 
 
 
