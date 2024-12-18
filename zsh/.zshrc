@@ -133,6 +133,8 @@ source "$ZSH_PLUGINS/ohmyzsh/plugins/copypath/copypath.plugin.zsh"
 source "$ZSH_PLUGINS/ohmyzsh/plugins/copyfile/copyfile.plugin.zsh"
 source "$ZSH_PLUGINS/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh"
 
+fpath=($ZSH_PLUGINS/gradle-completion $fpath)
+
 ### PROMPT
 
 if [ -z "${TMUX}" ]; then

@@ -25,6 +25,7 @@ git -C ohmyzsh pull --depth 1 && rm -rf ohmyzsh/.git
 rm -rf zsh-autosuggestions && git clone --depth 1 https://github.com/zsh-users/zsh-autosuggestions.git && rm -rf zsh-autosuggestions/.git
 rm -rf zsh-syntax-highlighting && git clone --depth 1 https://github.com/zsh-users/zsh-syntax-highlighting.git && rm -rf zsh-syntax-highlighting/.git
 rm -rf zsh-you-should-use && git clone --depth 1 https://github.com/MichaelAquilina/zsh-you-should-use.git && rm -rf zsh-you-should-use/.git
+rm -rf gradle-completion && git clone --depth 1 https://github.com/gradle/gradle-completion && rm -rf gradle-completion/.git
 
 # Return to the previous directory
 popd > /dev/null
