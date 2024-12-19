@@ -1,0 +1,6 @@
+[credential]
+	helper = store
+	useHttpPath = true
+[user]
+	name = Pablo Sotres
+	email = psotres@users.noreply.github.com

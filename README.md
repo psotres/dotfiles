@@ -21,5 +21,5 @@ sudo wget https://github.com/mikefarah/yq/releases/latest/download/yq_linux_amd6
 ```bash
 git clone https://github.com/psotres/dotfiles.git
 cd dotfiles && ./zsh/.config/zsh/plugins/recreate_plugins.sh && ./tmux/.config/tmux/plugins/recreate_plugins.sh
-stow oh-my-posh && stow tmux && stow zsh
+stow gitconfig && stow oh-my-posh && stow tmux && stow zsh
 ```
