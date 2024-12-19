@@ -117,6 +117,9 @@ export MANROFFOPT="-c"
 # fzf with "selective" preview
 alias fzfp="fzf --preview '[ -d {} ] && tree -C {} || bat --color=always --style=numbers --line-range=:500 {}'"
 
+# lazygit
+alias lg="lazygit"
+
 alias ll="ls -alh"
 alias rm="rm -i"
 
